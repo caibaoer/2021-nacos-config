@@ -1,0 +1,26 @@
+server:
+  port: 56010
+  servlet:
+    context-path: /huangpan   #部署后访问路径： http://localhost:56010/huangpan/configs
+spring:
+  application:
+    name: service1   #服务器上面的data-id 就是这里的值加上file-extension  -->service1.yaml   默认有监听
+  cloud:
+    nacos:
+      config:
+        server-addr:  127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850
+        file-extension: yaml
+        namespace:  edec8a1c-633c-426d-a06e-9052cb4410d3
+        group:  TEST_GROUP
+        ext-config[0]:   #如果还有其他的配置文件，使用ext-config添加,group如果不指定，就是默认的DEFAULT_GROUP
+          data-id: ext-config-common01.properties
+          refresh: true
+        ext-config[1]:   #如果还有其他的配置文件，使用ext-config添加,group这里指定了TEST_GROUP
+          data-id: ext-config-common02.properties
+          group:  TEST_GROUP
+          refresh: true  #对于新增的配置文件，如果需要属性值动态刷新，需要配置refresh为true
+        ext-config[2]:   #如果还有其他的配置文件，使用ext-config添加,group如果不指定，就是默认的DEFAULT_GROUP
+          data-id: ext-config-common03.properties
+          refresh: true
+#common:
+#  name: huangwencai              #本地有的话，就直接获取，不到nacos服务上获取

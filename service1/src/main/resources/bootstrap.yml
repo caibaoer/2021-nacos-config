@@ -8,7 +8,7 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr:  127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850
+        server-addr:  127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850   #集群需要使用逗号隔开
         file-extension: yaml
         namespace:  edec8a1c-633c-426d-a06e-9052cb4410d3
         group:  TEST_GROUP
